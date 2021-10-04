@@ -14,11 +14,8 @@ public class Referee {
         final List<Integer> playerPickNumbers = player.getPickNumber();
 
         for (int i=0; i<GameNumberRule.DIGIT.getNumber(); i++) {
-            final Integer computerPickNumber = computerPickNumbers.get(i);
-            final Integer playerPickNumber = playerPickNumbers.get(i);
-
-            strikeCheck(judgmentResult, computerPickNumber, playerPickNumber);
-            ballCheck(judgmentResult, playerPickNumbers, i, computerPickNumber);
+            strikeCheck(judgmentResult, computerPickNumbers.get(i), playerPickNumbers.get(i));
+            ballCheck(judgmentResult, playerPickNumbers, i, computerPickNumbers.get(i));
         }
         return judgmentResult;
     }
