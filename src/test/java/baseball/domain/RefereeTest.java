@@ -4,7 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mockStatic;
 
-import baseball.view.PlayerNumberInputConsole;
+import baseball.view.PlayerInputConsole;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -25,7 +25,7 @@ class RefereeTest {
             System.setIn(in);
 
             final Computer computer = ComputerNumberGenerator.createNonDuplicateThreeDigitNumber();
-            final Player player = PlayerNumberInputConsole.inputNumber();
+            final Player player = PlayerInputConsole.inputNumber();
 
             final JudgmentResult judgment = Referee.judgment(computer, player);
 
@@ -44,7 +44,7 @@ class RefereeTest {
             System.setIn(in);
 
             final Computer computer = ComputerNumberGenerator.createNonDuplicateThreeDigitNumber();
-            final Player player = PlayerNumberInputConsole.inputNumber();
+            final Player player = PlayerInputConsole.inputNumber();
 
             final JudgmentResult judgment = Referee.judgment(computer, player);
 
@@ -63,7 +63,7 @@ class RefereeTest {
             System.setIn(in);
 
             final Computer computer = ComputerNumberGenerator.createNonDuplicateThreeDigitNumber();
-            final Player player = PlayerNumberInputConsole.inputNumber();
+            final Player player = PlayerInputConsole.inputNumber();
 
             final JudgmentResult judgment = Referee.judgment(computer, player);
 
@@ -83,7 +83,7 @@ class RefereeTest {
             System.setIn(in);
 
             final Computer computer = ComputerNumberGenerator.createNonDuplicateThreeDigitNumber();
-            final Player player = PlayerNumberInputConsole.inputNumber();
+            final Player player = PlayerInputConsole.inputNumber();
 
             final JudgmentResult judgment = Referee.judgment(computer, player);
 
