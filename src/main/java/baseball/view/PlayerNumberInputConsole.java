@@ -2,6 +2,7 @@ package baseball.view;
 
 import baseball.constant.GameNumberRule;
 import baseball.constant.PlayerErrorMessage;
+import baseball.domain.Player;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -12,7 +13,7 @@ public class PlayerNumberInputConsole {
     private PlayerNumberInputConsole() {
     }
 
-    public static List<Integer> inputNumber() {
+    public static Player inputNumber() {
         final String inputNumber = Console.readLine();
         numberThreeDigitCheck(inputNumber);
         List<Integer> numbers = new ArrayList<>();
@@ -26,7 +27,7 @@ public class PlayerNumberInputConsole {
             numberDuplicateCheck(numbers, numericNumber);
             numbers.add(numericNumber);
         }
-        return Collections.unmodifiableList(numbers);
+        return new Player(Collections.unmodifiableList(numbers));
     }
 
     private static void numberDuplicateCheck(List<Integer> numbers, int numericNumber) {

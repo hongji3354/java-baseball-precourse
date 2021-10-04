@@ -3,6 +3,7 @@ package baseball.view;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import baseball.domain.Player;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -24,9 +25,9 @@ class PlayerNumberInputConsoleTest {
     void 세자리_수_입력(String inputNumber) {
         scannerInput(inputNumber);
 
-        final List<Integer> numbers = PlayerNumberInputConsole.inputNumber();
+        final Player player = PlayerNumberInputConsole.inputNumber();
 
-        assertThat(numbers.size()).isEqualTo(3);
+        assertThat(player.getPickNumber().size()).isEqualTo(3);
     }
 
     @ParameterizedTest
@@ -43,8 +44,8 @@ class PlayerNumberInputConsoleTest {
     void 입력된_숫자들은_서로_다른_숫자() {
         scannerInput("123");
 
-        final List<Integer> numbers = PlayerNumberInputConsole.inputNumber();
-        assertThat(numbers).containsExactly(1,2,3);
+        final Player player = PlayerNumberInputConsole.inputNumber();
+        assertThat(player.getPickNumber()).containsExactly(1,2,3);
     }
 
     @ParameterizedTest
