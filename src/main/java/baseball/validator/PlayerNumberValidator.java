@@ -1,37 +1,31 @@
-package baseball.view;
+package baseball.validator;
 
 import baseball.constant.GameNumberRule;
 import baseball.constant.PlayerErrorMessage;
-import baseball.domain.Player;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import nextstep.utils.Console;
+import java.util.HashSet;
+import java.util.Set;
 
-public class PlayerNumberInputConsole {
+public class PlayerNumberValidator {
 
-    private PlayerNumberInputConsole() {
+    private PlayerNumberValidator() {
     }
 
-    public static Player inputNumber() {
-        final String inputNumber = Console.readLine();
+    public static void validator(String inputNumber) {
         numberThreeDigitCheck(inputNumber);
-        List<Integer> numbers = new ArrayList<>();
-
         for (int i=0; i<inputNumber.length(); i++) {
             final char number = inputNumber.charAt(i);
             numberCheck(number);
             numberRangeCheck(number);
-
-            final int numericNumber = Character.getNumericValue(number);
-            numberDuplicateCheck(numbers, numericNumber);
-            numbers.add(numericNumber);
         }
-        return new Player(Collections.unmodifiableList(numbers));
+        numberDuplicateCheck(inputNumber);
     }
 
-    private static void numberDuplicateCheck(List<Integer> numbers, int numericNumber) {
-        if (numbers.contains(numericNumber)) {
+    private static void numberDuplicateCheck(String numericNumber) {
+        Set<String> set = new HashSet<>();
+        for (int i=0; i<numericNumber.length(); i++) {
+            set.add(Character.toString(numericNumber.charAt(i)));
+        }
+        if (set.size() != GameNumberRule.DIGIT.getNumber()) {
             throw new IllegalArgumentException(PlayerErrorMessage.DUPLICATE_NUMBER.getErrorMessage());
         }
     }
