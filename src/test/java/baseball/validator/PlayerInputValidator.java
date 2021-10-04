@@ -5,9 +5,9 @@ import baseball.constant.PlayerErrorMessage;
 import java.util.HashSet;
 import java.util.Set;
 
-public class PlayerNumberValidator {
+public class PlayerInputValidator {
 
-    private PlayerNumberValidator() {
+    private PlayerInputValidator() {
     }
 
     public static void validator(String inputNumber) {
