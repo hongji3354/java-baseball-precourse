@@ -7,6 +7,7 @@ import static org.mockito.Mockito.mockStatic;
 
 import baseball.constant.GameNumberRule;
 import java.util.HashSet;
+import java.util.List;
 import nextstep.utils.Randoms;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
@@ -38,8 +39,9 @@ class ComputerNumberGeneratorTest {
     @Test
     void 생성된_숫자에_새로운_숫자_추가_불가() {
         final Computer computer = ComputerNumberGenerator.createNonDuplicateThreeDigitNumber();
+        final List<Integer> computerPickNumber = computer.getPickNumber();
 
-        assertThatThrownBy(() -> computer.getPickNumber().add(10))
+        assertThatThrownBy(() -> computerPickNumber.add(10))
             .isInstanceOf(UnsupportedOperationException.class);
     }
     
