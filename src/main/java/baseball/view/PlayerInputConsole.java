@@ -3,7 +3,6 @@ package baseball.view;
 import baseball.domain.Player;
 import baseball.validator.PlayerBaseBallGameInputValidator;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import nextstep.utils.Console;
 
@@ -16,7 +15,7 @@ public class PlayerInputConsole {
         System.out.print("숫자를 입력해주세요 :");
         final String inputNumber = Console.readLine();
         PlayerBaseBallGameInputValidator.validator(inputNumber);
-        return new Player(Collections.unmodifiableList(stringToIntegerList(inputNumber)));
+        return new Player(stringToIntegerList(inputNumber));
     }
 
     private static List<Integer> stringToIntegerList(String inputNumber) {
