@@ -23,10 +23,7 @@ public class PlayerOutputConsole {
             System.out.printf("%d볼%n", judgment.getBall());
             return;
         }
-
-        if (judgment.isNotSing()) {
-            System.out.println("낫싱");
-        }
+        System.out.println("낫싱");
     }
 
     public static void gameEndPrint() {
