@@ -7,7 +7,6 @@ public class PlayerOutputConsole {
     private PlayerOutputConsole() {
     }
 
-    // TODO : 10라인 이하로 줄여야 함
     public static void judgmentResultPrint(JudgmentResult judgment) {
         if (judgment.isStrike() && judgment.isBall()) {
             System.out.printf("%d스트라이크 %d볼%n", judgment.getStrike(), judgment.getBall());
