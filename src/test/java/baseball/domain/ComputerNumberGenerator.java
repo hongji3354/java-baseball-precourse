@@ -2,7 +2,6 @@ package baseball.domain;
 
 import baseball.constant.GameNumberRule;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import nextstep.utils.Randoms;
@@ -14,10 +13,10 @@ public class ComputerNumberGenerator {
 
     public static Computer createNonDuplicateThreeDigitNumber() {
         Set<Integer> numbers = new LinkedHashSet<>();
-        while (!(numbers.size() == GameNumberRule.DIGIT.getNumber())) {
+        while (numbers.size() != GameNumberRule.DIGIT.getNumber()) {
             numbers.add(createNumber());
         }
-        return new Computer(Collections.unmodifiableList(new ArrayList<>(numbers)));
+        return new Computer(new ArrayList<>(numbers));
     }
 
     private static int createNumber() {
