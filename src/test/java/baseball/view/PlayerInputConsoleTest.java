@@ -3,6 +3,7 @@ package baseball.view;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import baseball.constant.PlayerErrorMessage;
 import baseball.domain.Player;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -36,7 +37,7 @@ class PlayerInputConsoleTest {
 
         assertThatThrownBy(PlayerInputConsole::inputNumber)
             .isInstanceOf(IllegalArgumentException.class)
-            .hasMessage("[ERROR] 3자리만 입력가능 합니다.");
+            .hasMessage(PlayerErrorMessage.DIGIT_RANGE_OUT.getErrorMessage());
     }
 
     @Test
@@ -54,7 +55,7 @@ class PlayerInputConsoleTest {
 
         assertThatThrownBy(PlayerInputConsole::inputNumber)
             .isInstanceOf(IllegalArgumentException.class)
-            .hasMessage("[ERROR] 동일한 숫자는 입력이 불가능 합니다.");
+            .hasMessage(PlayerErrorMessage.DUPLICATE_NUMBER.getErrorMessage());
     }
 
     @ParameterizedTest
@@ -64,7 +65,7 @@ class PlayerInputConsoleTest {
 
         assertThatThrownBy(PlayerInputConsole::inputNumber)
             .isInstanceOf(IllegalArgumentException.class)
-            .hasMessage("[ERROR] 문자는 입력이 불가능 합니다.");
+            .hasMessage(PlayerErrorMessage.NOT_NUMBER.getErrorMessage());
     }
 
     @Test
@@ -73,6 +74,6 @@ class PlayerInputConsoleTest {
 
         assertThatThrownBy(PlayerInputConsole::inputNumber)
             .isInstanceOf(IllegalArgumentException.class)
-            .hasMessage("[ERROR] 숫자는 1~9 사이만 가능합니다.");
+            .hasMessage(PlayerErrorMessage.NUMBER_RANGE_OUT.getErrorMessage());
     }
 }

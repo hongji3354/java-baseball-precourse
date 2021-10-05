@@ -20,4 +20,20 @@ public class JudgmentResult {
     public int getBall() {
         return ball;
     }
+
+    public boolean isAllStrike() {
+        return this.strike == 3;
+    }
+
+    public boolean isStrike() {
+        return this.strike != 0;
+    }
+
+    public boolean isBall() {
+        return this.ball != 0;
+    }
+
+    public boolean isNotSing() {
+        return !(isStrike() && isBall());
+    }
 }

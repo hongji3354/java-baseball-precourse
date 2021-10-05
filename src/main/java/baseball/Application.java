@@ -1,7 +1,15 @@
 package baseball;
 
+import baseball.domain.BaseBallGame;
+import baseball.domain.PlayerReGame;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO 숫자 야구 게임 구현
+        final BaseBallGame baseBallGame = new BaseBallGame();
+        baseBallGame.start();
+
+        if (baseBallGame.isGameEnd()) {
+            PlayerReGame.reGameWhether();
+        }
     }
 }
