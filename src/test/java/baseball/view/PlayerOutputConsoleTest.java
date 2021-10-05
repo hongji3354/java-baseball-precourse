@@ -23,7 +23,7 @@ class PlayerOutputConsoleTest {
         judgmentResult.addStrike();
         judgmentResult.addBall();
 
-        PlayerOutputConsole.print(judgmentResult);
+        PlayerOutputConsole.judgmentResultPrint(judgmentResult);
         assertThat(outContent.toString().trim()).isEqualTo("1스트라이크 1볼");
     }
 
@@ -32,7 +32,7 @@ class PlayerOutputConsoleTest {
         final JudgmentResult judgmentResult = new JudgmentResult();
         judgmentResult.addStrike();
 
-        PlayerOutputConsole.print(judgmentResult);
+        PlayerOutputConsole.judgmentResultPrint(judgmentResult);
         assertThat(outContent.toString().trim()).isEqualTo("1스트라이크");
     }
 
@@ -41,7 +41,7 @@ class PlayerOutputConsoleTest {
         final JudgmentResult judgmentResult = new JudgmentResult();
         judgmentResult.addBall();
 
-        PlayerOutputConsole.print(judgmentResult);
+        PlayerOutputConsole.judgmentResultPrint(judgmentResult);
         assertThat(outContent.toString().trim()).isEqualTo("1볼");
     }
 
@@ -49,7 +49,7 @@ class PlayerOutputConsoleTest {
     void 낫싱_출력() {
         final JudgmentResult judgmentResult = new JudgmentResult();
 
-        PlayerOutputConsole.print(judgmentResult);
+        PlayerOutputConsole.judgmentResultPrint(judgmentResult);
         assertThat(outContent.toString().trim()).isEqualTo("낫싱");
     }
 

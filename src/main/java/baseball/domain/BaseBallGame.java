@@ -13,7 +13,7 @@ public class BaseBallGame {
         while (!this.isAllStrike) {
             Player players = getPlayer();
             final JudgmentResult judgments = Referee.judgment(computer, players);
-            PlayerOutputConsole.print(judgments);
+            PlayerOutputConsole.judgmentResultPrint(judgments);
             gameEndCheck(judgments);
         }
     }
