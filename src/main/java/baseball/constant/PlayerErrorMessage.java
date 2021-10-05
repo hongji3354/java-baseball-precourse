@@ -6,7 +6,7 @@ public enum PlayerErrorMessage {
     NOT_NUMBER("[ERROR] 문자는 입력이 불가능 합니다."),
     DIGIT_RANGE_OUT("[ERROR] 3자리만 입력가능 합니다."),
     DUPLICATE_NUMBER("[ERROR] 동일한 숫자는 입력이 불가능 합니다."),
-    RE_GAME_INPUT_ERROR("[ERROR] 잘못된 값을 입력하였습니다. 게임이 종료됩니다.");
+    RE_GAME_INPUT_ERROR("[ERROR] 게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
 
     private String errorMessage;
 

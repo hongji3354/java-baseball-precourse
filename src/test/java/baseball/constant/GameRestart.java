@@ -29,7 +29,7 @@ public enum GameRestart {
     public static GameRestart of(String input) {
         GameRestart findByRestart = restartMap.get(input);
         if (findByRestart == null) {
-            throw new IllegalArgumentException(String.format("%s는 지원되지 않는 값입니다.", input));
+            throw new IllegalArgumentException(PlayerErrorMessage.RE_GAME_INPUT_ERROR.getErrorMessage());
         }
         return findByRestart;
     }

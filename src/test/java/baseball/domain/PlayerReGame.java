@@ -8,9 +8,17 @@ public class PlayerReGame {
     }
 
     public static void reGameWhether() {
-        if (PlayerReGameInputConsole.reGame()) {
-            new BaseBallGame().start();
+        try {
+            gameStart(PlayerReGameInputConsole.reGame());
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            reGameWhether();
         }
     }
 
+    private static void gameStart(boolean reGame) {
+        if (reGame) {
+            new BaseBallGame().start();
+        }
+    }
 }
